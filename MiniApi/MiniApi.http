@@ -1,0 +1,11 @@
+# curl -i https://localhost:7250/openapi/v1.json
+GET https://localhost:7250/openapi/v1.json
+
+###
+
+@MiniApi_HostAddress = http://localhost:5078
+
+GET {{MiniApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

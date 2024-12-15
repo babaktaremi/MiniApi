@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApi", "MiniApi\MiniApi.csproj", "{FF7D7839-FB31-4D76-B790-119D4022708F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApi.AppHost", "MiniApi.AppHost\MiniApi.AppHost.csproj", "{94F6208E-795D-4359-B32B-02D1D2918A1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF7D7839-FB31-4D76-B790-119D4022708F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF7D7839-FB31-4D76-B790-119D4022708F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF7D7839-FB31-4D76-B790-119D4022708F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF7D7839-FB31-4D76-B790-119D4022708F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F6208E-795D-4359-B32B-02D1D2918A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F6208E-795D-4359-B32B-02D1D2918A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F6208E-795D-4359-B32B-02D1D2918A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F6208E-795D-4359-B32B-02D1D2918A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
