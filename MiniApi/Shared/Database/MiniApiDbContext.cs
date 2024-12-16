@@ -5,8 +5,10 @@ namespace MiniApi.Shared.Database;
 
 public class MiniApiDbContext(DbContextOptions<MiniApiDbContext> options):DbContext(options)
 {
+   
+    
     public DbSet<ProductEntity> Products => base.Set<ProductEntity>();
-    public DbSet<OrderItemEntity> OrderItems => base.Set<OrderItemEntity>();
+    public DbSet<OrderEntity> Orders => base.Set<OrderEntity>();
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

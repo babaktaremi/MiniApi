@@ -9,7 +9,6 @@ public class OrderItemEntity
 
     public OrderItemEntity( Guid productId, int quantity, Guid orderId)
     {
-        Id = Guid.NewGuid();
         ProductId = productId;
         Quantity = quantity;
         OrderId = orderId;
