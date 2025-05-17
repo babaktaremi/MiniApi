@@ -14,4 +14,8 @@ builder.AddProject<Projects.MiniApi>("miniApi")
     .WaitFor(apiDatabase)
     .WithHttpHealthCheck("/healthcheck");
 
+builder.AddProject<Projects.MiniApi_MigrationService>("migrationService")
+    .WithReference(apiDatabase)
+    .WaitFor(apiDatabase);
+
 builder.Build().Run();
