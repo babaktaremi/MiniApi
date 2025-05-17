@@ -20,11 +20,11 @@ public class GetProductsByName
                 connection.QueryAsync<GetProductsByNameResult>(
                     $@"
                     Select 
-                    ""Id"" as {nameof(GetProductsByNameResult.ProductId)},
-                    ""Name"" as {nameof(GetProductsByNameResult.ProductName)},
-                    ""Price"" as {nameof(GetProductsByNameResult.ProductPrice)}
+                    id as {nameof(GetProductsByNameResult.ProductId)},
+                    name as {nameof(GetProductsByNameResult.ProductName)},
+                    price as {nameof(GetProductsByNameResult.ProductPrice)}
                     FROM prod.Products
-                    Where ""Name"" ILike '%' || @name || '%'
+                    Where name ILike '%' || @name || '%'
                        "
                     , new { name = query.Name });
 
