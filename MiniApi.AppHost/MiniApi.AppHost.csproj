@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\MiniApi\MiniApi.csproj" />
+        <ProjectReference Include="..\MiniApi.MigrationService\MiniApi.MigrationService.csproj" />
     </ItemGroup>
 
 </Project>

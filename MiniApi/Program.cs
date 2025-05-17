@@ -28,6 +28,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseMinimalEndpoints();
 
-await app.MigrateDatabaseAsync();
+//await app.MigrateDatabaseAsync();
 
 await app.RunAsync();

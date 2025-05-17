@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApi", "MiniApi\MiniApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApi.AppHost", "MiniApi.AppHost\MiniApi.AppHost.csproj", "{94F6208E-795D-4359-B32B-02D1D2918A1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApi.MigrationService", "MiniApi.MigrationService\MiniApi.MigrationService.csproj", "{A730C7D9-8D9F-46F0-805E-FAF65512AC8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{94F6208E-795D-4359-B32B-02D1D2918A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94F6208E-795D-4359-B32B-02D1D2918A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94F6208E-795D-4359-B32B-02D1D2918A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A730C7D9-8D9F-46F0-805E-FAF65512AC8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A730C7D9-8D9F-46F0-805E-FAF65512AC8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A730C7D9-8D9F-46F0-805E-FAF65512AC8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A730C7D9-8D9F-46F0-805E-FAF65512AC8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
