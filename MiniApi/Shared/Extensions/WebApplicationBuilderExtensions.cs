@@ -15,7 +15,8 @@ public static class WebApplicationBuilderExtensions
 
         builder.Services.AddDbContext<MiniApiDbContext>(optionsBuilder =>
         {
-            optionsBuilder.UseNpgsql(builder.Configuration.GetConnectionString("miniApiDb"));
+            optionsBuilder.UseNpgsql(builder.Configuration.GetConnectionString("miniDb"));
+            optionsBuilder.UseLowerCaseNamingConvention();
         });
         
         return builder;
@@ -24,7 +25,7 @@ public static class WebApplicationBuilderExtensions
     public static WebApplicationBuilder AddDapper(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IDbConnection>(_ =>
-            new NpgsqlConnection(builder.Configuration.GetConnectionString("miniApiDb")));
+            new NpgsqlConnection(builder.Configuration.GetConnectionString("miniDb")));
 
         return builder;
     }

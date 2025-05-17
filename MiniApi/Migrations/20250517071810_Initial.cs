@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MiniApi.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDb : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,12 +22,12 @@ namespace MiniApi.Migrations
                 schema: "ord",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    OrderName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    ordername = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_orders", x => x.Id);
+                    table.PrimaryKey("pk_orders", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,13 +35,13 @@ namespace MiniApi.Migrations
                 schema: "prod",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Price = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false)
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    price = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_products", x => x.Id);
+                    table.PrimaryKey("pk_products", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,34 +49,34 @@ namespace MiniApi.Migrations
                 schema: "ord",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ProductId = table.Column<Guid>(type: "uuid", nullable: false),
-                    OrderId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Quantity = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    productid = table.Column<Guid>(type: "uuid", nullable: false),
+                    orderid = table.Column<Guid>(type: "uuid", nullable: false),
+                    quantity = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_orderitems", x => x.Id);
+                    table.PrimaryKey("pk_orderitems", x => x.id);
                     table.ForeignKey(
-                        name: "FK_orderitems_orders_OrderId",
-                        column: x => x.OrderId,
+                        name: "fk_orderitems_orders_orderid",
+                        column: x => x.orderid,
                         principalSchema: "ord",
                         principalTable: "orders",
-                        principalColumn: "Id",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_orderitems_OrderId",
+                name: "ix_orderitems_orderid",
                 schema: "ord",
                 table: "orderitems",
-                column: "OrderId");
+                column: "orderid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_orderitems_ProductId",
+                name: "ix_orderitems_productid",
                 schema: "ord",
                 table: "orderitems",
-                column: "ProductId");
+                column: "productid");
         }
 
         /// <inheritdoc />

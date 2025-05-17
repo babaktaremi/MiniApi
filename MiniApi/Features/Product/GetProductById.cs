@@ -20,11 +20,11 @@ public class GetProductById
                 connection.QueryFirstOrDefaultAsync<GetProductByIdResult>(
                     $@"
                     Select 
-                    ""Id"" as {nameof(GetProductByIdResult.Id)},
-                    ""Name"" as {nameof(GetProductByIdResult.Name)},
-                    ""Price"" as {nameof(GetProductByIdResult.Price)}
+                    id as {nameof(GetProductByIdResult.Id)},
+                    name as {nameof(GetProductByIdResult.Name)},
+                    price as {nameof(GetProductByIdResult.Price)}
                     FROM prod.Products
-                    Where ""Id"" = @id
+                    Where id = @id
                        "
                     , new { id = query.Id });
 

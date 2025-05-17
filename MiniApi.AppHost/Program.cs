@@ -1,21 +1,17 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var db = builder.AddPostgres("miniApiDb")
-    .WithImageRegistry("docker.arvancloud.ir")
     .WithDataVolume()
     .WithLifetime(ContainerLifetime.Persistent)
-    .WithPgWeb(resourceBuilder =>
-    {
-        resourceBuilder.WithImageRegistry("docker.arvancloud.ir");
-    })
-    .WithPgAdmin(resourceBuilder =>
-    {
-        resourceBuilder.WithImageRegistry("docker.arvancloud.ir");
-    });
+    .WithPgWeb()
+    .WithPgAdmin();
+
+var apiDatabase=db.AddDatabase("miniDb","miniDb");
 
 builder.AddProject<Projects.MiniApi>("miniApi")
     .WithExternalHttpEndpoints()
-    .WithReference(db)
-    .WaitFor(db);
+    .WithReference(apiDatabase)
+    .WaitFor(apiDatabase)
+    .WithHttpHealthCheck("/healthcheck");
 
 builder.Build().Run();

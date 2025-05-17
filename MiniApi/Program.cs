@@ -14,6 +14,12 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+app.MapGet("healthcheck", () => Results.Ok("Healthy"))
+    .WithName("HealthCheck")
+    .WithTags("HealthCheck")
+    .Produces(200)
+    .Produces(500);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

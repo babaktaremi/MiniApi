@@ -26,14 +26,17 @@ namespace MiniApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
 
                     b.Property<string>("OrderName")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("ordername");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_orders");
 
                     b.ToTable("orders", "ord");
                 });
@@ -42,22 +45,29 @@ namespace MiniApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
 
                     b.Property<Guid>("OrderId")
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("orderid");
 
                     b.Property<Guid>("ProductId")
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("productid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("quantity");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_orderitems");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("OrderId")
+                        .HasDatabaseName("ix_orderitems_orderid");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .HasDatabaseName("ix_orderitems_productid");
 
                     b.ToTable("orderitems", "ord");
                 });
@@ -66,18 +76,22 @@ namespace MiniApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("name");
 
                     b.Property<decimal>("Price")
                         .HasPrecision(18, 2)
-                        .HasColumnType("numeric(18,2)");
+                        .HasColumnType("numeric(18,2)")
+                        .HasColumnName("price");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_products");
 
                     b.ToTable("products", "prod");
                 });
@@ -88,7 +102,8 @@ namespace MiniApi.Migrations
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_orderitems_orders_orderid");
                 });
 
             modelBuilder.Entity("MiniApi.Shared.Database.Entities.OrderEntity", b =>

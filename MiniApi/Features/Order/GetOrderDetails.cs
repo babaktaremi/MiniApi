@@ -37,16 +37,16 @@ public class GetOrderDetails
             var result =
                 await connection.QueryAsync<GetOrderDetailsQueryResult, OrderItems, GetOrderDetailsQueryResult>(
                     $@"
-                         SELECT o.""Id"" AS OrderId
-                        , oi.""Id"" As OrderItemId
-                        , oi.""ProductId"" As ProductId
-                        , p.""Name"" As ProductName
-                        , p.""Price"" As ProductPrice
-                        , oi.""Quantity"" As Quantity 
+                         SELECT o.id AS OrderId
+                        , oi.id As OrderItemId
+                        , oi.productId As ProductId
+                        , p.name As ProductName
+                        , p.price As ProductPrice
+                        , oi.quantity As Quantity 
                         FROM ord.Orders o 
-                            INNER JOIN ord.OrderItems oi ON o.""Id"" = oi.""OrderId""
-                            INNER JOIN prod.Products p ON oi.""ProductId"" = p.""Id""
-                         WHERE o.""Id"" = @OrderId
+                            INNER JOIN ord.OrderItems oi ON o.id = oi.orderId
+                            INNER JOIN prod.Products p ON oi.productid = p.id
+                         WHERE o.id = @OrderId
                         "
                     , (queryResult, items) =>
                     {
