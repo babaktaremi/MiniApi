@@ -1,12 +1,14 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+
 var db = builder.AddPostgres("miniApiDb")
     .WithDataVolume()
     .WithLifetime(ContainerLifetime.Persistent)
     .WithPgWeb()
     .WithPgAdmin();
 
-var apiDatabase=db.AddDatabase("miniDb","miniDb");
+var apiDatabase=db
+    .AddDatabase("miniDb","miniDb");
 
 builder.AddProject<Projects.MiniApi>("miniApi")
     .WithExternalHttpEndpoints()
@@ -16,6 +18,7 @@ builder.AddProject<Projects.MiniApi>("miniApi")
 
 builder.AddProject<Projects.MiniApi_MigrationService>("migrationService")
     .WithReference(apiDatabase)
-    .WaitFor(apiDatabase);
+    .WaitFor(apiDatabase)
+    .WithParentRelationship(db);
 
 builder.Build().Run();
