@@ -15,5 +15,19 @@
       <jdbc-url>jdbc:postgresql://localhost:9096/miniDb?password=mj%28MW%28ShsjrVsYt4%7EptY3U&amp;user=postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="miniDb" uuid="1ec680ec-b2d0-4fbe-9630-79347b663825">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:9868/miniDb?password=sjEU5ytCf27%2B5T2Ky94RGA&amp;user=postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="miniDb" uuid="7daca653-4884-4da2-9a37-5d95b0ef7050">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:13800/miniDb?password=sjEU5ytCf27%2B5T2Ky94RGA&amp;user=postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
