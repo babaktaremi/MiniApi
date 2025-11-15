@@ -41,7 +41,7 @@ public class GetProductById
                 var result = await sender.Send(new GetProductByIdRequest(id));
                 
                 return result is null ? Results.NotFound() : Results.Ok(result);
-            }).WithOpenApi().WithName("GetProductById")
+            }).WithName("GetProductById")
             .WithTags("Product");
         }
     }

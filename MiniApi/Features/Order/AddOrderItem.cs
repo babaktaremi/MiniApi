@@ -47,7 +47,6 @@ public class AddOrderItem
 
                     return TypedResults.Created($"/order/detail/{result.Value.OrderId}");
                 })
-                .WithOpenApi()
                 .WithTags("order")
                 .WithName("AddOrderItem");
         }
