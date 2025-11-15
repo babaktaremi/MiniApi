@@ -37,7 +37,7 @@ public class CreateProduct
 
                     return TypedResults.Created($"/product/{result.Id}");
 
-               }).WithOpenApi().WithName("CreateProduct")
+               }).WithName("CreateProduct")
                .WithTags("Product");
           }
      }

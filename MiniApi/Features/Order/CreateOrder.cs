@@ -35,7 +35,7 @@ public class CreateOrder
                     var result = await sender.Send(request, cancellationToken);
 
                     return TypedResults.Created($"/order/{result.OrderId}");
-                }).WithOpenApi()
+                })
                 .WithTags("order")
                 .WithName("CreateOrder");
         }

@@ -75,7 +75,7 @@ public class GetOrderDetails
                 var result = await sender.Send(new GetOrderDetailsQuery(orderId), cancellationToken);
                 
                 return Results.Ok(result);
-            }).WithOpenApi()
+            })
             .WithTags("order")
             .WithName("GetOrderDetails");
         }

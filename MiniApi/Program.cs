@@ -1,4 +1,5 @@
 using MiniApi.Shared.Extensions;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ app.MapGet("healthcheck", () => Results.Ok("Healthy"))
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseMinimalEndpoints();

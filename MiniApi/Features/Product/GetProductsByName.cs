@@ -42,7 +42,7 @@ public class GetProductsByName
                 var result = await sender.Send(new GetProductsByNameQuery(name), cancellationToken);
 
                 return TypedResults.Ok(result);
-            }).WithOpenApi()
+            })
             .WithTags("product")
             .WithName("GetProductsByName");
         }
